@@ -5,13 +5,23 @@ export class ProductsEntity {
     @PrimaryGeneratedColumn()
     id: number;
     
-    @Column({ name: 'name', type: 'varchar', length: '60' })
+    @Column({ 
+        name: 'name', 
+        type: 'varchar', 
+        length: '60' 
+    })
     name: string;
 
-    @Column({ name: 'provider', type: 'varchar', length: '60' })
+    @Column({ 
+        name: 'provider', 
+        type: 'varchar', 
+        length: '60' })
     provider: string;
 
-    @Column({ name: 'price', type: 'double' })
+    @Column({ 
+        name: 'price', 
+        type: 'double' 
+    })
     price: number;
 
     /*

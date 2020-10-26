@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { ProductsEntity } from "src/product/products.entity";
+import { Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { ProductsTypesService } from "./products-types.service";
 
 @Entity({ name: 'productsTypes '})
 export class ProductsTypesEntity {
@@ -7,9 +9,13 @@ export class ProductsTypesEntity {
     
     @Column({ 
         name: 'description',
-        nullable:false,
+        nullable: false,
         type: 'varchar',
         length: 50 
     })
     description: string;
+
+    @OneToMany( id => ProductsEntity, product => product.id)
+    @JoinColumn({ name: 'product_id' })
+    id_product: ProductsEntity;
 }
