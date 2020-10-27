@@ -8,9 +8,9 @@ import { ClientsService } from './clients/clients.service';
 import { ProductsController } from './product/products.controller';
 import { ProductsEntity } from './product/products.entity';
 import { ProductsService } from './product/products.service';
-import { ProductsTypesController } from './products_types/products-type.controller';
-import { ProductsTypesEntity } from './products_types/products-types.entity';
-import { ProductsTypesService } from './products_types/products-types.service';
+import { ProductsCategoryController } from './products_category/products-category.controller';
+import { ProductsCategoryEntity } from './products_category/products-category.entity';
+import { ProductsCategoryService } from './products_category/products-category.service';
 
 @Module({
   imports: [   
@@ -24,7 +24,7 @@ import { ProductsTypesService } from './products_types/products-types.service';
     entities: [
       ClientsEntity,
       ProductsEntity,
-      ProductsTypesEntity,
+      ProductsCategoryEntity,
     ],
     synchronize: true,
     logging: true,
@@ -32,20 +32,20 @@ import { ProductsTypesService } from './products_types/products-types.service';
   TypeOrmModule.forFeature([
       ClientsEntity, 
       ProductsEntity,
-      ProductsTypesEntity,
+      ProductsCategoryEntity,
     ])
 ],
   controllers: [
     AppController, 
     ClientsController,
     ProductsController,
-    ProductsTypesController,
+    ProductsCategoryController,
   ],
   providers: [
     AppService, 
     ClientsService,
     ProductsService,
-    ProductsTypesService,
+    ProductsCategoryService,
   ],
 })
 export class AppModule {}

@@ -7,26 +7,29 @@ import { InjectRepository } from '@nestjs/typeorm';
 export class ProductsService {
     constructor(
         @InjectRepository(ProductsEntity)
-        private readonly repository: Repository<ProductsEntity>
+        private readonly productsRepository: Repository<ProductsEntity>
     ) {}
 
         
     findAll() {
-        return this.repository.find();
+        return this.productsRepository.find();
     }
 
     findOne(id: number) {
-        return this.repository.findOne(id)
+        return this.productsRepository.findOne(id)
     }
     
     insertProduct(product: ProductsEntity) {
-        return this.repository.save(product);
-
-        // validar se tem ID, pra fazer update e se não tem cria novo
+        return this.productsRepository.save(product);
     }
-    /*
-    update(product: ProductsEntity) {
 
+    async updateproduct(product: ProductsEntity) {
+        const productToUpdate = this.findOne(product.id);
+        return this.productsRepository.update(await productToUpdate, product)
     }
-    */
+
+    deleteproduct(id: number) {
+        return this.productsRepository.delete(id);
+    }
+
 }

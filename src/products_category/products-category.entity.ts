@@ -1,21 +1,22 @@
 import { ProductsEntity } from "src/product/products.entity";
 import { Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { ProductsTypesService } from "./products-types.service";
 
-@Entity({ name: 'productsTypes '})
-export class ProductsTypesEntity {
+@Entity({ name: 'product_category'})
+export class ProductsCategoryEntity {
     @PrimaryGeneratedColumn()
     id: number;
     
     @Column({ 
-        name: 'description',
+        name: 'name',
         nullable: false,
         type: 'varchar',
         length: 50 
     })
-    description: string;
+    name: string;
 
-    @OneToMany( id => ProductsEntity, product => product.id)
+    /* Acho que não precisa
+    @OneToMany(() => ProductsEntity, product => product.id)
     @JoinColumn({ name: 'product_id' })
-    id_product: ProductsEntity;
+    id_product: ProductsEntity[];
+    */
 }

@@ -22,12 +22,13 @@ export class ProductsController {
     }
 
     @Put(':id')
-    update(@Param('id') id: string) {
-        return 'Atualiza o produto';
+    update(@Param('id') id: number, @Body() product: ProductsEntity) {
+        product.id = id;
+        return this.productsService.updateproduct(product);
     }
 
     @Delete(':id')
-    remove(@Param('id') id: string) {
-        return 'Deleta o produto';
+    deleteproduct(@Param('id') id: number) {
+        return this.productsService.deleteproduct(id);
     }
 }
