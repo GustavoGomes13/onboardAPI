@@ -1,13 +1,25 @@
-import { Column, Double, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { OrdersEntity } from "src/orders/orders.entity";
+import { ProductsEntity } from "src/product/products.entity";
+import { Column, Double, Entity, JoinColumn, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({ name: 'order-products' })
-export class OrderProducts {
+export class OrderProductsEntity {
     @PrimaryGeneratedColumn()
     id: number;
 
-    //@ManyToOne Pedido que possuem o item
+    // Pedido que possuem o item
+    @ManyToOne(() => OrdersEntity, order => order.id, {
+        eager: true
+    })
+    @JoinColumn()
+    order: OrdersEntity;
     
-    //@ManyToMany id do item
+    // id do item
+    @ManyToMany(() => ProductsEntity, {
+        eager: true
+    })
+    @JoinColumn()
+    products: ProductsEntity;
     
     @Column({
         name: 'quantity',

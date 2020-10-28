@@ -24,7 +24,7 @@ export class ClientsService {
 
     async updateClient(client: ClientsEntity) {
         const clientToUpdate = this.findOne(client.id);
-        return this.clientsRepository.update(await clientToUpdate, client)
+        return this.clientsRepository.update(await clientToUpdate, client);
     }
 
     deleteClient(id: number) {
