@@ -25,7 +25,10 @@ export class ProductsEntity {
     })
     price: number;
 
-    @ManyToOne(() => ProductsCategoryEntity, product_category => product_category.id)
+    @ManyToOne(() => ProductsCategoryEntity, product_category => product_category.id, {
+        // Opção faz com que os relacionamentos sejam exibidos nas querys
+        eager: true
+    })
     @JoinColumn({ name: "product_category_id" })
     category: ProductsCategoryEntity;
 
