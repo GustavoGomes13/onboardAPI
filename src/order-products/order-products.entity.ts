@@ -15,9 +15,7 @@ export class OrderProductsEntity {
     order: OrdersEntity;
     
     // id do item
-    @ManyToMany(() => ProductsEntity, {
-        eager: true
-    })
+    @ManyToMany(() => ProductsEntity)
     @JoinColumn()
     products: ProductsEntity;
     

@@ -17,9 +17,7 @@ export class OrdersEntity {
     //@OneToMany Items do pedido
     //nome do item, valor unitario
     // acho q não precisa, mas pra testes vai ficar
-    @OneToMany(() => OrderProductsEntity, order_products => order_products.id, {
-        eager: true
-    })
+    @OneToMany(() => OrderProductsEntity, order_products => order_products.id)
     @JoinColumn()
     order_products: OrderProductsEntity;
 
