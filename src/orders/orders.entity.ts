@@ -2,7 +2,7 @@ import { ClientsEntity } from "src/clients/clients.entity";
 import { OrderProductsEntity } from "src/order-products/order-products.entity";
 import { Column, Double, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity( { name: 'order' })
+@Entity( { name: 'orders' })
 export class OrdersEntity {
     @PrimaryGeneratedColumn()
     id: number;

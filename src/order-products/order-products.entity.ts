@@ -24,7 +24,7 @@ export class OrderProductsEntity {
     @Column({
         name: 'quantity',
         nullable: false,
-        type: 'number',
+        type: 'int',
     })
     quantity: number;
 
