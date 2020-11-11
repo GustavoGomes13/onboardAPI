@@ -1,14 +1,15 @@
 import { ClientsEntity } from "src/clients/clients.entity";
 import { OrderProductsEntity } from "src/order-products/order-products.entity";
-import { Column, Double, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Double, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity( { name: 'orders' })
 export class OrdersEntity {
     @PrimaryGeneratedColumn()
     id: number;
 
-    //@OneToOne Nome do cliente
-    @OneToOne(() => ClientsEntity, {
+    //@OneToOne Nome do cliente - antigo
+    // manyto one
+    @ManyToOne(() => ClientsEntity, {
         eager: true
     })
     @JoinColumn()

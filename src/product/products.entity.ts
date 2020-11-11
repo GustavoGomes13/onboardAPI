@@ -1,5 +1,6 @@
+import { OrderProductsEntity } from "src/order-products/order-products.entity";
 import { ProductsCategoryEntity } from "src/products_category/products-category.entity";
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, OneToMany } from "typeorm";
 
 @Entity({ name: 'product' })
 export class ProductsEntity {
@@ -36,4 +37,9 @@ export class ProductsEntity {
     @ManyToOne()
     private id_product_category: number;
     */ 
+
+        //@OneToMany() order-products - adicionado recentemente
+    @OneToMany(() => OrderProductsEntity, order_products => order_products.id)
+    @JoinColumn()
+    order_products: OrderProductsEntity;
 }

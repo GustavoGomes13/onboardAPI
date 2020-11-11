@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { OrdersEntity } from "src/orders/orders.entity";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, JoinColumn } from "typeorm";
 
 // name = nome da tabela no banco
 @Entity({ name: 'client'})
@@ -36,4 +37,9 @@ export class ClientsEntity {
         length: 11 
     })
     phone_number: string;
+
+    // relacionamento pedido
+    @OneToMany(() => OrdersEntity, orders => orders.id)
+    @JoinColumn()
+    orders: OrdersEntity;
 }

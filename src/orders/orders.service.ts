@@ -26,6 +26,7 @@ export class OrdersService {
         const orderToUpdate = this.findOne(order.id);
         return this.ordersRepository.update(await orderToUpdate, order)
     }
+    // cancelar o item e lançar novo
 
     /* Não vai ser possivel deletar um pedido
     deleteOrder(id: number) {
