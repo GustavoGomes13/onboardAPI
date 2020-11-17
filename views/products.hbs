@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/top-menu.css">
         <link rel="stylesheet" href="/css/submenu.css">
         <link rel="stylesheet" href="/css/products.css">
         <title>Produtos</title>
     </head>
     <body>
         <header>
-            {{> top-menu}}
+            <div class="top-menu">
+            <div class="dropdown">
+                <a class="cadastros-btn">Cadastros</a>
+                <div class="dropdown-content">
+                    <a href="/clients">Clientes</a>
+                    <a href="/products">Produtos</a>
+                </div>
+            </div>
+            <a href="/orders">Comandas</a>
+            <a href="#">Relatórios</a>
+            <a href="/settings">Configurações</a>
+        </div>
         </header>
 
-        {{> submenu}}
+        <div class="submenu">
+            <a href="#">+</a>
+        </div>
         <!--
         <div class="search-container">
             <div class="search-bar">
@@ -74,8 +89,7 @@
             </table>
         </div>
 
-        <script src="/scripts/products
-        .js"></script>
+        <script src="/scripts/products.js"></script>
 
     </body>
 </html>

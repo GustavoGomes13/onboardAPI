@@ -1,6 +1,6 @@
 import { ClientsEntity } from "src/clients/clients.entity";
 import { OrderProductsEntity } from "src/order-products/order-products.entity";
-import { Column, Double, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Double, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity( { name: 'orders' })
 export class OrdersEntity {

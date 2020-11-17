@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, Body, Param } from "@nestjs/common";
+import { Controller, Get, Post, Put, Delete, Body, Param, Render } from "@nestjs/common";
 import { ClientsEntity } from "./clients.entity";
 import { ClientsService } from "./clients.service";
 
@@ -6,11 +6,32 @@ import { ClientsService } from "./clients.service";
 export class ClientsController {
     constructor(private readonly clientsService: ClientsService) {}
 
+    
+    @Render('clients.hbs')
+    
+    /* old 
     @Get()
     findAll() {
         return this.clientsService.findAll();
     }
+    */
 
+    // Novo
+    @Get()
+    async findAll() {
+        const clients = await this.clientsService.findAll();
+        return { clients };
+    }
+
+    
+
+    /*
+    @Get()
+    @Render('clients.hbs')
+    root() {
+        return this.clientsService.findAll;
+    }
+    */
 
     @Get(':id')
     findOne(@Param('id') id: number) {

@@ -1,10 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Post, Put, Render } from "@nestjs/common";
 import { ProductsCategoryEntity } from "./products-category.entity";
 import { ProductsCategoryService } from "./products-category.service";
 
 @Controller('products-category')
 export class ProductsCategoryController {
     constructor(private readonly productsCategoryService: ProductsCategoryService) {}
+
+    @Render('settings.hbs')
 
     @Get()
     findAll() {

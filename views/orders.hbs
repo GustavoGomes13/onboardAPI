@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/top-menu.css">
     <link rel="stylesheet" href="/CSS/orders.css">
     <title>Comandas</title>
 </head>
 <body>
     <header>
-        {{> top-menu}}
+        <div class="top-menu">
+            <div class="dropdown">
+                <a class="cadastros-btn">Cadastros</a>
+                <div class="dropdown-content">
+                    <a href="/clients">Clientes</a>
+                    <a href="/products">Produtos</a>
+                </div>
+            </div>
+            <a href="/orders">Comandas</a>
+            <a href="#">Relatórios</a>
+            <a href="/settings">Configurações</a>
+        </div>
     </header> 
 
     <div class="submenu">
