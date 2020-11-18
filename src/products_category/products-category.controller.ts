@@ -9,8 +9,9 @@ export class ProductsCategoryController {
     @Render('settings.hbs')
 
     @Get()
-    findAll() {
-        return this.productsCategoryService.findAll();
+    async findAll() {
+        const products_category = await this.productsCategoryService.findAll();
+        return { products_category };
     }
 
     @Get(':id')

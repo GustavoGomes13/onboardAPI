@@ -9,8 +9,9 @@ export class ProductsController {
     @Render('products.hbs')
 
     @Get()
-    findAll() {
-        return this.productsService.findAll();
+    async findAll() {
+        const products = await this.productsService.findAll();
+        return { products }
     }
     
     @Get(':id')

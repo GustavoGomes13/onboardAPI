@@ -9,8 +9,9 @@ export class OrdersController {
     @Render('orders.hbs')
 
     @Get()
-    findAll() {
-        return this.ordersService.findAll();
+    async findAll() {
+        const orders = await this.ordersService.findAll();
+        return { orders }
     }
 
     @Get(':id')

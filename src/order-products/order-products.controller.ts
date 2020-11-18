@@ -6,6 +6,8 @@ import { OrderProductsService } from "./order-products.service";
 export class OrderProductsController {
     constructor(private readonly orderProductsService: OrderProductsService) {}
 
+
+    //ver questão do Render
     @Get()
     findAll() {
         return this.orderProductsService.findAll();
