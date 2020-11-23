@@ -35,7 +35,7 @@
         -->
 
     <div class="content-container">
-        <form action="add-product" method="POST">
+        <form action="products" method="POST">
             <fieldset class="new-product hide">
                 <legend>Novo produto</legend>
                 <label for="name">Produto:</label>
@@ -45,9 +45,9 @@
                 <label for="type">Tipo do produto:</label>
                 <select id="tipo" name="type">
                     <option disabled="" selected>Selecione um tipo</option>
-                    {{#product_category}}
+                    {{#products_category}}
                     <option value="{{id}}">{{name}}</option>
-                    {{/product_category}}
+                    {{/products_category}}
                 </select><br>
                 <label for="price">Valor:</label>
                 <input type="text" placeholder="R$ 0,00" name="price"><br>
@@ -79,7 +79,7 @@
                     <td>{{name}}</td>
                     <td>{{provider}}</td>
                     <td>{{price}}</td>
-                    <td>{{pcName}}</td>
+                    <td>{{category.name}}</td>
                     <td class="buttons">
                         <a href="edit-product/{{id}}">Editar</a>
                         <a href="delete-product/{{id}}">Deletar</a>

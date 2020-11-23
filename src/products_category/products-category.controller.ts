@@ -6,9 +6,9 @@ import { ProductsCategoryService } from "./products-category.service";
 export class ProductsCategoryController {
     constructor(private readonly productsCategoryService: ProductsCategoryService) {}
 
-    @Render('settings.hbs')
-
+    
     @Get()
+    @Render('settings.hbs')
     async findAll() {
         const products_category = await this.productsCategoryService.findAll();
         return { products_category };

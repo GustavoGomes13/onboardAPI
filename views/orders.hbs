@@ -3,7 +3,8 @@
 <head>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/top-menu.css">
-    <link rel="stylesheet" href="/CSS/orders.css">
+    <link rel="stylesheet" href="/css/submenu.css">
+    <link rel="stylesheet" href="/css/orders.css">
     <title>Comandas</title>
 </head>
 <body>
@@ -23,7 +24,34 @@
     </header> 
 
     <div class="submenu">
-        <a href="/new-order">+</a>
+        <a href="#">+</a>
+    </div>
+
+    <div class="content-container">
+        <form action="orders" method="POST">
+            <fieldset class="new-order hide">
+                <legend>Novo pedido</legend>
+                <label for="clientName">Cliente:</label>
+                <select id="client" name="clientName">
+                    <option disabled="" selected>Selecione um cliente</option>
+                    {{#clients}}
+                    <option value="{{id}}">{{name}}</option>
+                    {{/clients}}
+                </select></br>
+                <label for="product">Produto:</label>
+                <select id="product" name="product">
+                    <option disabled="" selected>Selecione um produto</option>
+                    {{#products}}
+                    <option value="{{id}}">{{name}}</option>
+                    {{/products}}
+                </select></br>
+                <label for="qty">Quantidade:</label>
+                <input type="number"></br>
+
+                <button>Add Produtos</button>
+                <buton>Salvar</buton>
+            </fieldset>
+        </form>
     </div>
 
     <div class="grid">
@@ -49,9 +77,9 @@
                     <button>Finalizar</button>
                 </div>
             </div>
-
         </div>
     </div>
+
 
     <script src="/scripts/orders.js"></script>
 

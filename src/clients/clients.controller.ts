@@ -5,10 +5,7 @@ import { ClientsService } from "./clients.service";
 @Controller('clients')
 export class ClientsController {
     constructor(private readonly clientsService: ClientsService) {}
-
-    
-    @Render('clients.hbs')
-    
+   
     /* old 
     @Get()
     findAll() {
@@ -18,12 +15,11 @@ export class ClientsController {
 
     // Novo
     @Get()
+    @Render('clients.hbs')
     async findAll() {
         const clients = await this.clientsService.findAll();
         return { clients };
     }
-
-    
 
     /*
     @Get()
@@ -54,4 +50,12 @@ export class ClientsController {
         return this.clientsService.deleteClient(id);
     }
     
+    /*
+    @Delete(':id')
+    async deleteClient(@Param('id') id: number) {
+        const clients = await this.clientsService.deleteClient(id);
+        return { clients };
+    }
+    */
+
 }

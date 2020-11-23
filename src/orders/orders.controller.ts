@@ -1,17 +1,25 @@
 import { Body, Controller, Get, Param, Post, Put, Render } from "@nestjs/common";
+import { ClientsService } from "src/clients/clients.service";
+import { ProductsService } from "src/product/products.service";
 import { OrdersEntity } from "./orders.entity";
 import { OrdersService } from "./orders.service";
 
 @Controller('orders')
 export class OrdersController {
-    constructor(private readonly ordersService: OrdersService) {}
+    constructor(
+        private readonly ordersService: OrdersService,
+        private readonly clientsService: ClientsService,
+        private readonly productsService: ProductsService,
+        ) {}
 
-    @Render('orders.hbs')
-
+    
     @Get()
+    @Render('orders.hbs')
     async findAll() {
         const orders = await this.ordersService.findAll();
-        return { orders }
+        const clients = await this.clientsService.findAll();
+        const products = await this.productsService.findAll();
+        return { orders, clients, products }
     }
 
     @Get(':id')

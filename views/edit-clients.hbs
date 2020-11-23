@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/top-menu.css">
+    <link rel="stylesheet" href="/css/clients.css">
+    <link rel="stylesheet" href="/css/edit-client.css">
+    <title>Editar cliente</title>
+</head>
+<body>
+    <header>
+        <div class="top-menu">
+            <div class="dropdown">
+                <a class="cadastros-btn">Cadastros</a>
+                <div class="dropdown-content">
+                    <a href="/clients">Clientes</a>
+                    <a href="/products">Produtos</a>
+                </div>
+            </div>
+            <a href="/orders">Comandas</a>
+            <a href="#">Relatórios</a>
+            <a href="/settings">Configurações</a>
+        </div>
+    </header>
+
+    <div class="content-container">
+        <form action="/update-client" method="POST">
+            <fieldset class="edit-client">
+                <input type="text" value="{{client.id}}" name="id" readonly><br>
+                <label for="name">Nome:</label>
+                <input type="text" name="nome" placeholder="Nome do cliente" value="{{client.name}}" required><br>
+                <label for="cpf">CPF:</label>
+                <input type="text" name="cpf" placeholder="000.000.000-00" value="{{client.cpf}}" required><br>
+                <label for="address">Endereço:</label>
+                <input type="text" name="endereco" placeholder="Endereço" value="{{client.address}}" required><br>
+                <label for="phone-client">Telefone:</label>
+                <input type="text" name="telefone" placeholder="(45) 9 9999-9999" value="{{client.phone_number}}" required><br>
+
+                <div class="buttons">
+                    <button type="submit" id="btnSave">Salvar</button>
+                    <a href="/clientes">Cancelar</a>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    
+</body>
+</html>

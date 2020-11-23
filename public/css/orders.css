@@ -1,29 +1,26 @@
-.submenu {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    bottom: 25px;
-    right: 25px;
-}
-
-.submenu a {
-    text-decoration: none;
-    background-color: black;
-    color: orange;
-    width: 45px;
-    height: 45px;
+.content-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
-    font-size: 40px;
-    font-weight: bolder;
-    margin-top: 10px;
+    flex-direction: column;
+    margin-top: 30px;
 }
 
-.submenu a:hover {
-    background-color: orange;
-    color: black;
+.content-container .hide {
+    display: none;
+}
+
+.new-order {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 0;
+    border-radius: 8px;
+    justify-content: center;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    width: 30vw;
+    margin-bottom: 25px;
 }
 
 .grid {
