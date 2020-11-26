@@ -16,7 +16,9 @@ export class OrderProductsEntity {
     
     // id do item
     // ManyToOne pro produto
-    @ManyToOne(() => ProductsEntity)
+    @ManyToOne(() => ProductsEntity, product => product.id, {
+        
+    })
     @JoinColumn()
     products: ProductsEntity;
     

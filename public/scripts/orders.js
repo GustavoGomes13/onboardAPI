@@ -1,5 +1,5 @@
 //Abre form para novo pedido
-let add= document.querySelector('.submenu a')
+let add = document.querySelector('.submenu a')
 
 let formAddOrder = document.querySelector('.new-order')
 
@@ -9,11 +9,14 @@ add.addEventListener('click', () => {
 
 // Maximizar e minimzar as comandas
 let card = document.querySelector(".card")
+//let card = document.getElementsByClassName('card')
 
 let cardContent = document.querySelector(".card-content")
+//let cardContent = document.getElementsByClassName('card-content')
 
-card.addEventListener("click", () => {
-    cardContent.classList.toggle("hide")
+card.addEventListener('click', () => {
+    cardContent.classList.toggle('hide')
+    
 })
 
 /*************/

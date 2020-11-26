@@ -29,7 +29,7 @@ export class ProductsController {
         return this.productsService.insertProduct(product);
     }
 
-    @Put('edit-product/:id')
+    @Put(':id')
     update(@Param('id') id: number, @Body() product: ProductsEntity) {
         product.id = id;
         return this.productsService.updateproduct(product);

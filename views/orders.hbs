@@ -77,15 +77,17 @@
         </form>
     </div>
 
+    {{#orders}}
     <div class="grid">
         <div class="card">
             <div class="name">
-                <span>Gustavo Gomes</span> <!-- Colocar a ID -->
+                <span>{{client.name}}</span> <!-- Colocar a ID -->
             </div>
 
             <div class="card-content hide">
                 <div class="list-products">
                     <h3>Produtos:</h3>
+                    
                     <ul>
                         <li>Trento</li>
                         <li>Booster</li>
@@ -102,6 +104,7 @@
             </div>
         </div>
     </div>
+    {{/orders}}
 
 
     <script src="/scripts/orders.js"></script>
