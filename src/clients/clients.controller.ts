@@ -39,13 +39,13 @@ export class ClientsController {
         return this.clientsService.insertClient(client);
     }
 
-    @Put(':id')
+    @Put(':id/update')
     update(@Param('id') id: number, @Body() client: ClientsEntity) {
         client.id = id;
         return this.clientsService.updateClient(client);
     }
 
-    @Delete(':id')
+    @Delete(':id/delete')
     deleteClient(@Param('id') id: number) {
         return this.clientsService.deleteClient(id);
     }

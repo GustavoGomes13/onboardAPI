@@ -9,10 +9,10 @@ export class OrdersEntity {
 
     //@OneToOne Nome do cliente - antigo
     // manyto one
-    @ManyToOne(() => ClientsEntity, {
+    @ManyToOne(() => ClientsEntity, client => client.id, {
         eager: true
     })
-    @JoinColumn()
+    @JoinColumn({ name: "client_id" })
     client: ClientsEntity;
 
     //@OneToMany Items do pedido

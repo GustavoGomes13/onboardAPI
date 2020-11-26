@@ -8,7 +8,8 @@ export class ProductsEntity {
     id: number;
     
     @Column({ 
-        name: 'name', 
+        name: 'name',
+        nullable: false,
         type: 'varchar', 
         length: '60' 
     })

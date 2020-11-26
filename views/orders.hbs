@@ -39,17 +39,40 @@
                     {{/clients}}
                 </select></br>
                 <label for="product">Produto:</label>
-                <select id="product" name="product">
-                    <option disabled="" selected>Selecione um produto</option>
-                    {{#products}}
-                    <option value="{{id}}">{{name}}</option>
-                    {{/products}}
-                </select></br>
-                <label for="qty">Quantidade:</label>
-                <input type="number"></br>
 
-                <button>Add Produtos</button>
-                <buton>Salvar</buton>
+                <table id="products"  class="products">
+                    <tr>
+                        <th>Produto</th>
+                        <th>Valor</th>
+                    </tr>
+                    {{#products}}
+                    <tr>
+                        <td class="productId hide">{{id}}</td>
+                        <td class="productName">{{name}}</td>
+                        <td class="productPrice">{{price}}</td>
+                        <td class="buttons">
+                            <button type="button" class="add-button">Add</button>
+                        </td>
+                    </tr>
+                    {{/products}}
+                </table>
+
+                <label>Itens do pedido:</label>
+                <table id="order-products">
+                    <tr>
+                        <th>Produto</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                    </tr>
+                    <!--
+                    <tr class="productInOrder">
+                        <td class="productNameInOrder">Zombie Burguer</td>
+                        <td class="productPriceInOrder">15</td>
+                        <td class="productQtyInOrder"><input type="number" value="1"></td>
+                    </tr>
+                    -->
+                </table>
+                <button type="submit">Salvar</button>
             </fieldset>
         </form>
     </div>
