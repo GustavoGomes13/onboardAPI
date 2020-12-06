@@ -19,7 +19,7 @@ export class OrdersEntity {
     //nome do item, valor unitario
     // acho q não precisa, mas pra testes vai ficar
     @OneToMany(() => OrderProductsEntity, order_products => order_products.id)
-    @JoinColumn()
+    @JoinColumn({ name: "order_products_id" })
     order_products: OrderProductsEntity;
 
 

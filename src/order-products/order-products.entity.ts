@@ -1,6 +1,6 @@
 import { OrdersEntity } from "src/orders/orders.entity";
 import { ProductsEntity } from "src/product/products.entity";
-import { Column, Double, Entity, JoinColumn, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Double, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({ name: 'order_products' })
 export class OrderProductsEntity {
@@ -17,7 +17,7 @@ export class OrderProductsEntity {
     // id do item
     // ManyToOne pro produto
     @ManyToOne(() => ProductsEntity, product => product.id, {
-        
+        eager: true
     })
     @JoinColumn()
     products: ProductsEntity;

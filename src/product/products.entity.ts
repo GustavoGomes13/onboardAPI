@@ -18,7 +18,8 @@ export class ProductsEntity {
     @Column({ 
         name: 'provider', 
         type: 'varchar', 
-        length: '60' })
+        length: '60' 
+    })
     provider: string;
 
     @Column({ 
@@ -34,13 +35,11 @@ export class ProductsEntity {
     @JoinColumn({ name: "product_category_id" })
     category: ProductsCategoryEntity;
 
-    /*
-    @ManyToOne()
-    private id_product_category: number;
-    */ 
+    //@OneToMany() order-products - adicionado recentemente
+    @OneToMany(() => OrderProductsEntity, order_products => order_products.id, {
 
-        //@OneToMany() order-products - adicionado recentemente
-    @OneToMany(() => OrderProductsEntity, order_products => order_products.id)
+    })
     @JoinColumn()
     order_products: OrderProductsEntity;
+
 }
