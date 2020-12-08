@@ -2,6 +2,7 @@ import { Controller, Get, Post, Put, Delete, Body, Param, Render } from '@nestjs
 import { ProductsService } from './products.service';
 import { ProductsEntity } from './products.entity';
 import { ProductsCategoryService } from 'src/products_category/products-category.service';
+import { ProductsCategoryEntity } from 'src/products_category/products-category.entity';
 
 @Controller('products')
 export class ProductsController {
@@ -26,6 +27,7 @@ export class ProductsController {
 
     @Post()
     insert(@Body() product: ProductsEntity) {
+        console.log(product)
         return this.productsService.insertProduct(product);
     }
 

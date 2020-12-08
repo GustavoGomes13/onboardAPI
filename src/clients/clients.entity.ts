@@ -39,7 +39,6 @@ export class ClientsEntity {
     phone_number: string;
 
     // relacionamento pedido
-    @OneToMany(() => OrdersEntity, orders => orders.id)
-    @JoinColumn()
+    @OneToMany(() => OrdersEntity, o => o.client)
     orders: OrdersEntity;
 }

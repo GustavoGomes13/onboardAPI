@@ -9,7 +9,7 @@ export class OrdersEntity {
 
     //@OneToOne Nome do cliente - antigo
     // manyto one
-    @ManyToOne(() => ClientsEntity, client => client.id, {
+    @ManyToOne(() => ClientsEntity, c => c.orders, {
         eager: true
     })
     @JoinColumn({ name: "client_id" })
@@ -18,9 +18,11 @@ export class OrdersEntity {
     //@OneToMany Items do pedido
     //nome do item, valor unitario
     // acho q não precisa, mas pra testes vai ficar
-    @OneToMany(() => OrderProductsEntity, order_products => order_products.id)
+    @OneToMany(() => OrderProductsEntity, o => o.order, {
+        eager: true
+    })
     @JoinColumn({ name: "order_products_id" })
-    order_products: OrderProductsEntity;
+    order_products: OrderProductsEntity[];
 
 
     @Column({

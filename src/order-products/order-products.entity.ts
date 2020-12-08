@@ -1,6 +1,6 @@
 import { OrdersEntity } from "src/orders/orders.entity";
 import { ProductsEntity } from "src/product/products.entity";
-import { Column, Double, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Double, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({ name: 'order_products' })
 export class OrderProductsEntity {
@@ -8,18 +8,14 @@ export class OrderProductsEntity {
     id: number;
 
     // Pedido que possuem o item
-    @ManyToOne(() => OrdersEntity, order => order.id, {
-        eager: true
-    })
-    @JoinColumn()
+    @ManyToOne(() => OrdersEntity, o => o.order_products)
     order: OrdersEntity;
     
     // id do item
     // ManyToOne pro produto
-    @ManyToOne(() => ProductsEntity, product => product.id, {
+    @ManyToOne(() => ProductsEntity, p => p.order_products, {
         eager: true
     })
-    @JoinColumn()
     products: ProductsEntity;
     
     @Column({

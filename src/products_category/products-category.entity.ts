@@ -14,9 +14,7 @@ export class ProductsCategoryEntity {
     })
     name: string;
 
-    /* Acho que não precisa
     @OneToMany(() => ProductsEntity, product => product.id)
     @JoinColumn({ name: 'product_id' })
-    id_product: ProductsEntity[];
-    */
+    product: ProductsEntity[];
 }

@@ -7,17 +7,20 @@ add.addEventListener('click', () => {
     formAddOrder.classList.remove('hide')
 }) 
 
+/*
 // Maximizar e minimzar as comandas
 let card = document.querySelector(".card")
 //let card = document.getElementsByClassName('card')
 
 let cardContent = document.querySelector(".card-content")
-//let cardContent = document.getElementsByClassName('card-content')
 
+//let cardContent = document.getElementsByClassName('card-content')
+/*
 card.addEventListener('click', () => {
     cardContent.classList.toggle('hide')
     
 })
+*/
 
 /*************/
 let addProductButton = document.getElementsByClassName('add-button')

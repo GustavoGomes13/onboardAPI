@@ -28,18 +28,15 @@ export class ProductsEntity {
     })
     price: number;
 
-    @ManyToOne(() => ProductsCategoryEntity, product_category => product_category.id, {
+    @ManyToOne(() => ProductsCategoryEntity, p => p.product, {
         // Opção faz com que os relacionamentos sejam exibidos nas querys
-        eager: true
+        eager: true,
+        cascade: true
     })
     @JoinColumn({ name: "product_category_id" })
     category: ProductsCategoryEntity;
 
     //@OneToMany() order-products - adicionado recentemente
-    @OneToMany(() => OrderProductsEntity, order_products => order_products.id, {
-
-    })
-    @JoinColumn()
+    @OneToMany(() => OrderProductsEntity, o => o.products)
     order_products: OrderProductsEntity;
-
 }
